@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- remix icons cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- bootstrap css file -->
+    <link rel="stylesheet" href="./bootstrap-5.3.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./CSS/main.css">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <h1 class="fs-3 fw-bold mt-4 text-center">CURRENCY CONVERTER</h1>
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                <img class="img-fluid coin-img" src="./asserts/images/coin image.png" alt="coin-image">
+            </div>
+            <div class="col-12 border rounded-5 px-4 py-4 mt-2 mb-5">
+                <div class="row row-cols-sm-1 row-cols-md-4 row-cols-1">
+                    <div class="col my-2">
+                        <span class="fw-bold">Amount</span>
+                        <input type="number" value="1" id="amount-value" class="form-control">
+                        <small id="amount-error" class="text-danger"></small>
+                    </div>
+                    <div class="col my-2">
+                        <span class="fw-bold">From</span>
+                        <div class="country-cont">
+                            <img id="to-flag-img" src="https://flagsapi.com/PK/flat/64.png">
+                            <select name="country-selection" class="form-select">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col text-center convert-icon-div">
+                        <i role="button" class="ri-arrow-left-right-line border rounded-circle p-3 text-primary"></i>
+                    </div>
+                    <div class="col my-2">
+                        <span class="fw-bold">To</span>
+                        <div class="country-cont">
+                            <img id="from-flag-img" src="https://flagsapi.com/US/flat/64.png">
+                            <select name="country-selection" class="form-select">
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-cols-md-2 row-cols-sm-1 row-cols-1 mt-2">
+                    <div class="col">
+
+                    </div>
+                    <div class="col pt-2 text-end">
+                        <button class="btn btn-primary">Convert</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./JS/app.js"></script>
+</body>
+
+</html>

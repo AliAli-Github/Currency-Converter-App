@@ -1,0 +1,38 @@
+@font-face {
+    font-family: gilroy;
+    src: url(../asserts/font/Gilroy-Regular.ttf);
+}
+
+* {
+    font-family: gilroy;
+}
+
+.coin-img {
+    max-width: 200px;
+}
+
+.convert-icon-div {
+    margin-top: 30px;
+}
+
+.country-cont {
+    position: relative;
+}
+
+.country-cont img {
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    transform: translateY(-50%);
+    width: 35px;
+}
+
+select {
+    padding-left: 50px !important;
+}
+
+@media screen and (max-width:576px) {
+    .coin-img {
+        max-width: 80px;
+    }
+}
