@@ -44,8 +44,8 @@ makeCountryList();
 // taking amount from input 
 const amountInput = document.querySelector("#amount-value");
 let amountError = document.querySelector("#amount-error");
-const regex = /^(?!0$)\d+(\.\d+)?$/;
 function checkingAmount() {
+    const regex = /^(?!0$|0\d|-\d|-\.\d*|\.\d).+$/;
     amountInput.addEventListener("input", function () {
         if (amountInput.value === "") {
             amountError.innerHTML = "Please enter amount";
@@ -55,7 +55,34 @@ function checkingAmount() {
         }
         else {
             amountError.innerHTML = "";
+            convertCurrency();
         }
     });
 }
 checkingAmount();
+
+// converting currency and showing results
+const result = document.querySelector("#result");
+async function convertCurrency() {
+    const url = `https://api.currencyapi.com/v3/latest?apikey=cur_live_GkEQ3n3sRm8vKv2ayMYkQOOyO3xH2M6xpYI2IcD1`;
+    const fromCurrency = selectElem[0].options[selectElem[0].selectedIndex].value;
+    const toCurrency = selectElem[1].options[selectElem[1].selectedIndex].value;
+    const amount = Number(amountInput.value);
+    try {
+        const response = await fetch(`${url}&base_currency=${fromCurrency}`);
+        const rJson = await response.json();
+        const rate = rJson["data"][toCurrency].value;
+        const convertedAmount = (amount * rate);
+        result.innerHTML = `
+        <h6 class="fw-bold">${amount}.00 ${fromCurrency} =</h6>
+        <h4 class="fw-bold">${convertedAmount} ${toCurrency}</h4>`;
+
+    } catch (error) {
+        console.error("Error fetching currency data:", error);
+    }
+}
+
+const convertBtn = document.querySelector("#convert-btn");
+convertBtn.addEventListener("click", function () {
+    convertCurrency()
+});
